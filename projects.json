@@ -1,0 +1,31 @@
+[
+{
+  "_id": 1,
+  "name": "QA Kitchen",
+  "description": "App de receitas onde o tempero principal são os bugs",
+  "longDescription": "QA Kitchen é um app de receitas onde o tempero principal são os bugs 🐞\nNada aqui é perfeito de propósito: cadastre receitas, explore o sistema e encontre falhas escondidas enquanto treina seu olhar de QA.\nSe quebrou, funcionou — agora é só reportar 🍳✅",
+  "imageUrl": "/images/qa-kitchen.png",
+  "type": "Web App",
+  "level": "Iniciante",
+  "platform": "Web",
+  "access": {
+    "link": "https://qa-kitchen.exemplo.com",
+    "user": "-",
+    "pass": "-"
+  },
+  "requirements": [
+    "O usuário pode cadastrar uma receita informando nome, ingredientes, modo de preparo e tempo de preparo.",
+    "O nome da receita é obrigatório para permitir o salvamento.",
+    "O tempo de preparo deve ser maior do que zero e permitir números fracionados.",
+    "Ao salvar, a receita deve ser adicionada à lista imediatamente.",
+    "A lista deve exibir nome e tempo de preparo das receitas.",
+    "O usuário pode visualizar os detalhes completos de uma receita.",
+    "O usuário pode editar qualquer informação de uma receita existente.",
+    "As alterações feitas durante a edição devem ser refletidas na lista.",
+    "O sistema deve solicitar a confirmação ao excluir uma receita.",
+    "O sistema pode exibir mensagens de erro ou sucesso durante as ações.",
+    "A interface deve ser simples, sem validações ou tratamentos avançados.",
+    "Os dados devem ser mantidos apenas em memória."
+  ]
+}  
+]
