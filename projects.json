@@ -9,7 +9,7 @@
   "level": "Iniciante",
   "platform": "Web",
   "access": {
-    "link": "https://qa-kitchen.exemplo.com",
+    "link": "https://qa-kitchen-app.vercel.app/",
     "user": "-",
     "pass": "-"
   },
