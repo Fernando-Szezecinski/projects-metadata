@@ -184,7 +184,7 @@
         "_id": 2,
         "name": "QA PET API",
         "description": "API REST para prática de testes de QA com CRUD completo de pets, validações e documentação Swagger em português",
-        "longDescription": "API REST educacional desenvolvida especificamente para treinamento e prática de testes de QA (manual e automação). Oferece um CRUD completo para gerenciamento de pets (animais de estimação) com validações robustas, códigos HTTP corretos, respostas padronizadas e documentação interativa via Swagger UI. Ideal para praticar testes positivos, negativos, de contrato, integração e automação. Toda documentação, mensagens e propriedades estão em português (pt-BR) para facilitar o aprendizado. Deploy no Vercel com arquitetura serverless.",
+        "longDescription": "API REST educacional desenvolvida especificamente para treinamento e prática de testes de QA (manual e automação). Oferece um CRUD completo para gerenciamento de pets (animais de estimação) com validações robustas, códigos HTTP corretos, respostas padronizadas e documentação interativa via Swagger UI. Ideal para praticar testes positivos, negativos, de contrato, integração e automação. Toda documentação, mensagens e propriedades estão em português (pt-BR) para facilitar o aprendizado.",
         "imageUrl": "https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg",
         "type": "Projeto de API",
         "level": "Iniciante",
