@@ -110,5 +110,26 @@
     "description": "Criar e executar testes automatizados.",
     "category": "Técnica Avançada",
     "icon": "🤖"
+  },
+  {
+    "id": "skill_17",
+    "name": "Teste de API",
+    "description": "Criar e executar testes em nível de API.",
+    "category": "Técnica Intermediária",
+    "icon": "🛰️"
+  },
+  {
+    "id": "skill_18",
+    "name": "Postman",
+    "description": "Ferramenta para criar, executar e automatizar testes de API.",
+    "category": "Técnica Avançada",
+    "icon": "🚀"
+  },
+  {
+    "id": "skill_19",
+    "name": "Testes de Contrato",
+    "description": "Validar se a API está retornando os objetos e propriedades conforme esperado.",
+    "category": "Técnica Avançada",
+    "icon": "📄"
   }
 ]
