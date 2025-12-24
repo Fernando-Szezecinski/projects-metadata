@@ -177,7 +177,9 @@
         "approach": "Exploratório",
         "description": "Verificar que os dados são perdidos ao recarregar a página (dados apenas em memória)",
         "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9"]
-      },
+      }
+    ]
+  },
       {
         "_id": 2,
         "name": "QA PET API",
@@ -194,6 +196,4 @@
         },
         "requirements": []
      }
-    ]
-  }
 ]
