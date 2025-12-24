@@ -1,31 +1,185 @@
 [
-{
-  "_id": 1,
-  "name": "QA Kitchen",
-  "description": "App de receitas onde o tempero principal são os bugs",
-  "longDescription": "QA Kitchen é um app de receitas onde o tempero principal são os bugs 🐞\nNada aqui é perfeito de propósito: cadastre receitas, explore o sistema e encontre falhas escondidas enquanto treina seu olhar de QA.\nSe quebrou, funcionou — agora é só reportar 🍳✅",
-  "imageUrl": "https://images.pexels.com/photos/744780/pexels-photo-744780.jpeg",
-  "type": "Web App",
-  "level": "Iniciante",
-  "platform": "Web",
-  "access": {
-    "link": "https://qa-kitchen-app.vercel.app/",
-    "user": "-",
-    "pass": "-"
-  },
-  "requirements": [
-    "O usuário pode cadastrar uma receita informando nome, ingredientes, modo de preparo e tempo de preparo.",
-    "O nome da receita é obrigatório para permitir o salvamento.",
-    "O tempo de preparo deve ser maior do que zero e permitir números fracionados.",
-    "Ao salvar, a receita deve ser adicionada à lista imediatamente.",
-    "A lista deve exibir nome e tempo de preparo das receitas.",
-    "O usuário pode visualizar os detalhes completos de uma receita.",
-    "O usuário pode editar qualquer informação de uma receita existente.",
-    "As alterações feitas durante a edição devem ser refletidas na lista.",
-    "O sistema deve solicitar a confirmação ao excluir uma receita.",
-    "O sistema pode exibir mensagens de erro ou sucesso durante as ações.",
-    "A interface deve ser simples, sem validações ou tratamentos avançados.",
-    "Os dados devem ser mantidos apenas em memória."
-  ]
-}  
+  {
+    "_id": 1,
+    "name": "QA Kitchen",
+    "description": "App de receitas onde o tempero principal são os bugs",
+    "longDescription": "QA Kitchen é um app de receitas onde o tempero principal são os bugs 🐞\nNada aqui é perfeito de propósito: cadastre receitas, explore o sistema e encontre falhas escondidas enquanto treina seu olhar de QA.\nSe quebrou, funcionou — agora é só reportar 🍳✅",
+    "imageUrl": "https://images.pexels.com/photos/744780/pexels-photo-744780.jpeg",
+    "type": "Web App",
+    "level": "Iniciante",
+    "platform": "Web",
+    "access": {
+      "link": "https://qa-kitchen-app.vercel.app/",
+      "user": "-",
+      "pass": "-"
+    },
+    "requirements": [
+      "O usuário pode cadastrar uma receita informando nome, ingredientes, modo de preparo e tempo de preparo.",
+      "O nome da receita é obrigatório para permitir o salvamento.",
+      "O tempo de preparo deve ser maior do que zero e permitir números fracionados.",
+      "Ao salvar, a receita deve ser adicionada à lista imediatamente.",
+      "A lista deve exibir nome e tempo de preparo das receitas.",
+      "O usuário pode visualizar os detalhes completos de uma receita.",
+      "O usuário pode editar qualquer informação de uma receita existente.",
+      "As alterações feitas durante a edição devem ser refletidas na lista.",
+      "O sistema deve solicitar a confirmação ao excluir uma receita.",
+      "O sistema pode exibir mensagens de erro ou sucesso durante as ações.",
+      "A interface deve ser simples, sem validações ou tratamentos avançados.",
+      "Os dados devem ser mantidos apenas em memória."
+    ],
+    "scenarios": [
+      [
+        {
+          "id": "qa-kitchen-1",
+          "title": "Cadastro de Receita Completa",
+          "requirements": [1],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que o sistema permite cadastrar uma receita informando todos os campos: nome, ingredientes, modo de preparo e tempo de preparo",
+          "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-2",
+          "title": "Nome Obrigatório - Campo Vazio",
+          "requirements": [2],
+          "type": "Funcional",
+          "technique": "Valor Limite",
+          "approach": "Cenário Negativo",
+          "description": "Verificar que o sistema impede o salvamento quando o campo nome está vazio",
+          "skillsAwarded": ["skill_1", "skill_11", "skill_15"]
+        },
+        {
+          "id": "qa-kitchen-3",
+          "title": "Tempo de Preparo Válido (Decimal)",
+          "requirements": [3],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que o sistema aceita valores decimais válidos para tempo de preparo (ex: 1.5, 2.75)",
+          "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-4",
+          "title": "Tempo de Preparo Zero ou Negativo",
+          "requirements": [3],
+          "type": "Funcional",
+          "technique": "Valor Limite",
+          "approach": "Cenário Negativo",
+          "description": "Verificar que o sistema rejeita valores zero ou negativos para tempo de preparo",
+          "skillsAwarded": ["skill_1", "skill_11", "skill_15"]
+        },
+        {
+          "id": "qa-kitchen-5",
+          "title": "Receita Aparece na Lista Imediatamente",
+          "requirements": [4, 5],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que ao salvar uma receita, ela é adicionada à lista imediatamente exibindo nome e tempo de preparo",
+          "skillsAwarded": ["skill_1", "skill_4", "skill_10"]
+        },
+        {
+          "id": "qa-kitchen-6",
+          "title": "Visualizar Detalhes Completos",
+          "requirements": [6],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que o usuário consegue visualizar todos os detalhes de uma receita (nome, ingredientes, modo de preparo, tempo)",
+          "skillsAwarded": ["skill_1", "skill_4", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-7",
+          "title": "Edição Reflete na Lista",
+          "requirements": [7, 8],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que alterações feitas durante a edição de uma receita são refletidas na lista",
+          "skillsAwarded": ["skill_1", "skill_4", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-8",
+          "title": "Caracteres Especiais no Nome",
+          "requirements": [11],
+          "type": "Funcional",
+          "technique": "Error Guessing",
+          "approach": "Exploratório",
+          "description": "Explorar o comportamento do sistema ao inserir caracteres especiais no campo nome (@, #, $, etc)",
+          "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9"]
+        },
+        {
+          "id": "qa-kitchen-9",
+          "title": "Nome com Tamanho Extremo (1000+ caracteres)",
+          "requirements": [11],
+          "type": "Funcional",
+          "technique": "Valor Limite",
+          "approach": "Cenário Negativo",
+          "description": "Explorar o comportamento do sistema ao inserir um nome com mais de 1000 caracteres",
+          "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_14"]
+        },
+        {
+          "id": "qa-kitchen-10",
+          "title": "Múltiplos Cliques no Botão Salvar",
+          "requirements": [12],
+          "type": "Funcional",
+          "technique": "Error Guessing",
+          "approach": "Exploratório",
+          "description": "Explorar o que acontece ao clicar múltiplas vezes rapidamente no botão salvar",
+          "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9"]
+        },
+        {
+          "id": "qa-kitchen-11",
+          "title": "Fluxo Completo: CRUD de Receita",
+          "requirements": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Testar o fluxo completo de criar, visualizar, editar e excluir uma receita",
+          "skillsAwarded": ["skill_1", "skill_5", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-12",
+          "title": "Confirmação de Exclusão",
+          "requirements": [9],
+          "type": "Funcional",
+          "technique": "Partição de Equivalência",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que o sistema solicita confirmação antes de excluir uma receita",
+          "skillsAwarded": ["skill_1", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-13",
+          "title": "Mensagens de Erro/Sucesso",
+          "requirements": [10],
+          "type": "Não-Funcional",
+          "technique": "Caixa-Preta",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar que o sistema exibe mensagens apropriadas de erro ou sucesso durante as ações",
+          "skillsAwarded": ["skill_2", "skill_7", "skill_13"]
+        },
+        {
+          "id": "qa-kitchen-14",
+          "title": "Performance com 100+ Receitas",
+          "requirements": [12],
+          "type": "Não-Funcional",
+          "technique": "Caixa-Preta",
+          "approach": "Baseado em Requisitos",
+          "description": "Verificar o desempenho do sistema ao lidar com mais de 100 receitas em memória",
+          "skillsAwarded": ["skill_2", "skill_7"]
+        },
+        {
+          "id": "qa-kitchen-15",
+          "title": "Perda de Dados ao Recarregar",
+          "requirements": [12],
+          "type": "Funcional",
+          "technique": "Error Guessing",
+          "approach": "Exploratório",
+          "description": "Verificar que os dados são perdidos ao recarregar a página (dados apenas em memória)",
+          "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9"]
+        }
+      ]
+    ]
+  }
 ]
