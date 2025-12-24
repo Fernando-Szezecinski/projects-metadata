@@ -2,112 +2,112 @@
   {
     "id": "skill_1",
     "name": "Teste Funcional",
-    "description": "Verificar se o sistema faz o que deveria fazer",
+    "description": "Verificar se o sistema faz o que deveria fazer.",
     "category": "Tipo de Teste",
     "icon": "✅"
   },
   {
     "id": "skill_2",
     "name": "Teste Não-Funcional",
-    "description": "Verificar como o sistema se comporta (performance, usabilidade, etc)",
+    "description": "Verificar como o sistema se comporta (performance, usabilidade, etc).",
     "category": "Tipo de Teste",
     "icon": "⚡"
   },
   {
     "id": "skill_3",
     "name": "Teste de Componente",
-    "description": "Testar partes isoladas do sistema",
+    "description": "Testar partes isoladas do sistema.",
     "category": "Nível de Teste",
     "icon": "🧩"
   },
   {
     "id": "skill_4",
     "name": "Teste de Integração",
-    "description": "Testar se partes diferentes do sistema conversam entre si",
+    "description": "Testar se partes diferentes do sistema conversam entre si.",
     "category": "Nível de Teste",
     "icon": "🔗"
   },
   {
     "id": "skill_5",
     "name": "Teste de Sistema",
-    "description": "Testar o sistema completo funcionando junto",
+    "description": "Testar o sistema completo funcionando em ambiente similar ao ambiente de produção.",
     "category": "Nível de Teste",
     "icon": "🌐"
   },
   {
     "id": "skill_6",
     "name": "Teste de Aceite",
-    "description": "Validar se o sistema atende o que o cliente precisa",
+    "description": "Validar se o sistema atende o que o cliente precisa.",
     "category": "Nível de Teste",
     "icon": "✅"
   },
   {
     "id": "skill_7",
     "name": "Caixa-Preta",
-    "description": "Testar sem ver o código interno, focando em entradas e saídas",
+    "description": "Testar sem ver o código interno, focando em entradas e saídas.",
     "category": "Técnica de Teste",
     "icon": "⬛"
   },
   {
     "id": "skill_8",
     "name": "Caixa-Branca",
-    "description": "Testar conhecendo o código interno",
+    "description": "Testar conhecendo o código interno.",
     "category": "Técnica de Teste",
     "icon": "⬜"
   },
   {
     "id": "skill_9",
     "name": "Baseado em Experiência",
-    "description": "Intuição e conhecimento para prever bugs",
+    "description": "Intuição e conhecimento para prever bugs.",
     "category": "Técnica de Teste",
     "icon": "💡"
   },
   {
     "id": "skill_10",
     "name": "Partição de Equivalência",
-    "description": "Agrupar entradas similares para reduzir quantidade de testes",
+    "description": "Agrupar entradas similares para reduzir quantidade de testes.",
     "category": "Técnica Específica",
     "icon": "📊"
   },
   {
     "id": "skill_11",
     "name": "Valor Limite",
-    "description": "Focar nos limites onde erros costumam acontecer",
+    "description": "Focar nos limites onde erros costumam acontecer.",
     "category": "Técnica Específica",
     "icon": "🎯"
   },
   {
     "id": "skill_12",
     "name": "Error Guessing",
-    "description": "Prever onde podem existir bugs usando experiência",
+    "description": "Prever onde podem existir bugs usando experiência.",
     "category": "Técnica Específica",
     "icon": "💭"
   },
   {
     "id": "skill_13",
     "name": "Baseado em Requisitos",
-    "description": "Seguir regras e comportamentos descritos em documentos",
+    "description": "Seguir regras e comportamentos descritos em documentos.",
     "category": "Abordagem de Teste",
     "icon": "📋"
   },
   {
     "id": "skill_14",
     "name": "Exploratório",
-    "description": "Aprender sobre o sistema enquanto testa",
+    "description": "Aprender sobre o sistema enquanto testa.",
     "category": "Abordagem de Teste",
     "icon": "🔍"
   },
   {
     "id": "skill_15",
     "name": "Cenário Negativo",
-    "description": "Validar como o sistema reage a dados ou ações inválidas",
+    "description": "Validar como o sistema reage a dados ou ações inválidas.",
     "category": "Abordagem de Teste",
     "icon": "❌"
   },
   {
     "id": "skill_16",
     "name": "Automação de Testes",
-    "description": "Criar e executar testes automatizados",
+    "description": "Criar e executar testes automatizados.",
     "category": "Técnica Avançada",
     "icon": "🤖"
   }
