@@ -180,20 +180,878 @@
       }
     ]
   },
+  {
+    "_id": 2,
+    "name": "QA PET API",
+    "description": "API REST para prática de testes de QA com CRUD completo de pets, validações e documentação Swagger em português",
+    "longDescription": "API REST educacional desenvolvida especificamente para treinamento e prática de testes de QA (manual e automação). Oferece um CRUD completo para gerenciamento de pets (animais de estimação) com validações robustas, códigos HTTP corretos, respostas padronizadas e documentação interativa via Swagger UI. Ideal para praticar testes positivos, negativos, de contrato, integração e automação. Toda documentação, mensagens e propriedades estão em português (pt-BR) para facilitar o aprendizado.",
+    "imageUrl": "https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg",
+    "type": "Projeto de API",
+    "level": "Iniciante",
+    "platform": "API",
+    "access": {
+      "link": "https://qa-pet-api.vercel.app/api-docs/",
+      "user": "-",
+      "pass": "-"
+    },
+    "requirements": [
+      "1. A API deve permitir criar um pet com os campos obrigatórios: nome, tipo, idade",
+      "2. A API deve permitir criar um pet com os campos opcionais: raca, nomeDono",
+      "3. A API deve gerar um UUID único para cada pet criado",
+      "4. A API deve validar que 'nome' não está vazio e tem no máximo 100 caracteres",
+      "5. A API deve validar que 'tipo' é um dos seguintes: cachorro, gato, ave, outro",
+      "6. A API deve validar que 'idade' é um número inteiro não negativo entre 0 e 150",
+      "7. A API deve definir automaticamente os timestamps 'criadoEm' e 'atualizadoEm' no formato ISO 8601",
+      "8. A API deve retornar HTTP 201 quando um pet for criado com sucesso",
+      "9. A API deve permitir listar todos os pets sem filtros",
+      "10. A API deve permitir filtrar pets por 'tipo'",
+      "11. A API deve permitir filtrar pets por 'idade'",
+      "12. A API deve retornar HTTP 200 ao listar pets com sucesso",
+      "13. A API deve permitir buscar um pet específico por UUID",
+      "14. A API deve retornar HTTP 404 quando um pet não for encontrado",
+      "15. A API deve validar que o ID está em formato UUID válido",
+      "16. A API deve retornar HTTP 400 para formato de UUID inválido",
+      "17. A API deve permitir atualização parcial dos campos do pet",
+      "18. A API deve exigir pelo menos um campo para atualização",
+      "19. A API deve atualizar o timestamp 'atualizadoEm' nas atualizações",
+      "20. A API deve retornar HTTP 200 quando um pet for atualizado com sucesso",
+      "21. A API deve permitir deletar um pet por UUID",
+      "22. A API deve retornar HTTP 204 sem conteúdo quando um pet for deletado com sucesso",
+      "23. A API deve retornar respostas de erro padronizadas com os campos 'erro' e 'mensagem'",
+      "24. A API deve retornar HTTP 400 para todos os erros de validação",
+      "25. A API deve remover espaços em branco no início e fim dos campos de texto",
+      "26. A API deve validar o tamanho dos campos opcionais quando fornecidos",
+      "27. A API deve manter a consistência dos dados durante as atualizações",
+      "28. A API deve fornecer um endpoint de health check que retorna o status do sistema",
+      "29. A API deve fornecer documentação interativa da API via Swagger",
+      "30. A API deve suportar CORS para requisições de origem cruzada"
+    ],
+    "scenarios": [
       {
-        "_id": 2,
-        "name": "QA PET API",
-        "description": "API REST para prática de testes de QA com CRUD completo de pets, validações e documentação Swagger em português",
-        "longDescription": "API REST educacional desenvolvida especificamente para treinamento e prática de testes de QA (manual e automação). Oferece um CRUD completo para gerenciamento de pets (animais de estimação) com validações robustas, códigos HTTP corretos, respostas padronizadas e documentação interativa via Swagger UI. Ideal para praticar testes positivos, negativos, de contrato, integração e automação. Toda documentação, mensagens e propriedades estão em português (pt-BR) para facilitar o aprendizado.",
-        "imageUrl": "https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg",
-        "type": "Projeto de API",
-        "level": "Iniciante",
-        "platform": "API",
-        "access": {
-          "link": "https://qa-pet-api.vercel.app/api-docs/",
-          "user": "-",
-          "pass": "-"
-        },
-        "requirements": []
-     }
+        "id": 1,
+        "title": "Criar Pet com Todos os Campos",
+        "requirements": [1, 2, 7, 8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite criar um pet informando todos os campos obrigatórios (nome, tipo, idade) e opcionais (raca, nomeDono), retornando HTTP 201 e gerando UUID e timestamps automaticamente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 2,
+        "title": "Criar Pet Apenas com Campos Obrigatórios",
+        "requirements": [1, 7, 8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite criar um pet apenas com campos obrigatórios (nome, tipo, idade), sem informar os campos opcionais",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 3,
+        "title": "Validar UUID Gerado Automaticamente",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o pet criado recebe um UUID v4 válido gerado automaticamente pelo sistema",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_19", "skill_17"]
+      },
+      {
+        "id": 4,
+        "title": "Validar Timestamps ISO 8601",
+        "requirements": [7],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que os campos criadoEm e atualizadoEm são gerados automaticamente no formato ISO 8601",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_19", "skill_17"]
+      },
+      {
+        "id": 5,
+        "title": "Campo Nome Obrigatório - Ausente",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 e mensagem de erro quando tentar criar um pet sem o campo 'nome'",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 6,
+        "title": "Campo Tipo Obrigatório - Ausente",
+        "requirements": [5],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 e mensagem de erro quando tentar criar um pet sem o campo 'tipo'",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 7,
+        "title": "Campo Idade Obrigatório - Ausente",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 e mensagem de erro quando tentar criar um pet sem o campo 'idade'",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 8,
+        "title": "Nome Vazio Não Permitido",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita a criação de pet quando o campo 'nome' é uma string vazia",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 9,
+        "title": "Nome Excedendo Limite de 100 Caracteres",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro quando o campo 'nome' ultrapassa 100 caracteres",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 10,
+        "title": "Tipo Inválido Rejeitado",
+        "requirements": [5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita valores de 'tipo' diferentes de: cachorro, gato, ave, outro",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 11,
+        "title": "Idade Negativa Rejeitada",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro quando o campo 'idade' tem valor negativo",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 12,
+        "title": "Idade Decimal Rejeitada",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita valores decimais para o campo 'idade' (apenas inteiros aceitos)",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 13,
+        "title": "Idade Excedendo 150 Anos",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita valores de 'idade' maiores que 150",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 14,
+        "title": "Idade Não Numérica Rejeitada",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro quando o campo 'idade' não é um número",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 15,
+        "title": "Raça Excedendo 100 Caracteres",
+        "requirements": [26],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita o campo opcional 'raca' quando ultrapassa 100 caracteres",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 16,
+        "title": "Nome do Dono Excedendo 100 Caracteres",
+        "requirements": [26],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita o campo opcional 'nomeDono' quando ultrapassa 100 caracteres",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 17,
+        "title": "Listar Todos os Pets",
+        "requirements": [9, 12],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna todos os pets cadastrados sem aplicar filtros",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 18,
+        "title": "Filtrar Pets por Tipo Cachorro",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API filtra e retorna apenas pets do tipo 'cachorro'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 19,
+        "title": "Filtrar Pets por Tipo Gato",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API filtra e retorna apenas pets do tipo 'gato'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 20,
+        "title": "Filtrar Pets por Tipo Ave",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API filtra e retorna apenas pets do tipo 'ave'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 21,
+        "title": "Filtrar Pets por Tipo Outro",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API filtra e retorna apenas pets do tipo 'outro'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 22,
+        "title": "Filtrar Pets por Idade Específica",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API filtra e retorna apenas pets com a idade especificada",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 23,
+        "title": "Combinar Filtros Tipo e Idade",
+        "requirements": [10, 11],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API aplica corretamente múltiplos filtros simultaneamente (tipo e idade)",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 24,
+        "title": "Filtro com Tipo Inválido",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro HTTP 400 ao usar valor inválido no filtro 'tipo'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 25,
+        "title": "Filtro com Idade Não Numérica",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro ao usar valor não numérico no filtro 'idade'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 26,
+        "title": "Filtro com Idade Negativa",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro ao usar valor negativo no filtro 'idade'",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 27,
+        "title": "Buscar Pet por UUID Válido",
+        "requirements": [13],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna HTTP 200 e os dados completos do pet ao buscar por UUID existente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 28,
+        "title": "Buscar Pet com UUID Inexistente",
+        "requirements": [14],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 404 ao buscar por UUID válido mas inexistente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 29,
+        "title": "Buscar Pet com UUID Inválido",
+        "requirements": [15, 16],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 ao buscar com ID em formato inválido (não UUID)",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 30,
+        "title": "Buscar Pet com ID Malformado",
+        "requirements": [15, 16],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 ao buscar com ID completamente malformado",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_15", "skill_17"]
+      },
+      {
+        "id": 31,
+        "title": "Atualizar Um Único Campo do Pet",
+        "requirements": [17, 19, 20],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite atualização parcial, atualizando apenas um campo e mantendo os demais inalterados",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 32,
+        "title": "Atualizar Múltiplos Campos do Pet",
+        "requirements": [17, 19, 20],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite atualizar vários campos simultaneamente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 33,
+        "title": "Atualizar Todos os Campos do Pet",
+        "requirements": [17, 19, 20],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite atualizar todos os campos do pet de uma vez",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 34,
+        "title": "Timestamp atualizadoEm Atualizado",
+        "requirements": [19],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o campo 'atualizadoEm' é atualizado automaticamente após uma modificação",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 35,
+        "title": "Timestamp criadoEm Permanece Inalterado",
+        "requirements": [7, 27],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o campo 'criadoEm' não é modificado durante atualizações do pet",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 36,
+        "title": "Campos Não Atualizados Permanecem Iguais",
+        "requirements": [17, 27],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que campos não incluídos na requisição de atualização mantêm seus valores originais",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 37,
+        "title": "Atualizar Sem Fornecer Campos",
+        "requirements": [18],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro HTTP 400 ao tentar atualizar sem fornecer nenhum campo",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 38,
+        "title": "Atualizar Pet com UUID Inexistente",
+        "requirements": [14],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 404 ao tentar atualizar pet com UUID inexistente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 39,
+        "title": "Atualizar com UUID Inválido",
+        "requirements": [15, 16],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 ao tentar atualizar com UUID em formato inválido",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 40,
+        "title": "Atualizar com Nome Vazio",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita atualização quando o campo 'nome' é string vazia",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 41,
+        "title": "Atualizar com Tipo Inválido",
+        "requirements": [5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita atualização com valor inválido no campo 'tipo'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 42,
+        "title": "Atualizar com Idade Negativa",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita atualização com valor negativo no campo 'idade'",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 43,
+        "title": "Deletar Pet Existente",
+        "requirements": [21, 22],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite deletar um pet existente e retorna HTTP 204 sem conteúdo",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 44,
+        "title": "Pet Deletado Não Pode Ser Recuperado",
+        "requirements": [14, 21],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que após deletar um pet, tentativas de buscá-lo retornam HTTP 404",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 45,
+        "title": "Deletar Pet com UUID Inexistente",
+        "requirements": [14],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 404 ao tentar deletar pet com UUID inexistente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 46,
+        "title": "Deletar com UUID Inválido",
+        "requirements": [15, 16],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 ao tentar deletar com UUID em formato inválido",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 47,
+        "title": "Validar HTTP 201 na Criação",
+        "requirements": [8],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna status HTTP 201 Created ao criar pet com sucesso",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 48,
+        "title": "Validar HTTP 200 na Busca",
+        "requirements": [12],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna status HTTP 200 OK ao buscar pet existente",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 49,
+        "title": "Validar HTTP 200 na Listagem",
+        "requirements": [12],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna status HTTP 200 OK ao listar pets",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 50,
+        "title": "Validar HTTP 200 na Atualização",
+        "requirements": [20],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna status HTTP 200 OK ao atualizar pet com sucesso",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 51,
+        "title": "Validar HTTP 204 na Exclusão",
+        "requirements": [22],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna status HTTP 204 No Content ao deletar pet com sucesso",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 52,
+        "title": "Validar HTTP 400 para Erros de Validação",
+        "requirements": [24],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna status HTTP 400 Bad Request para todos os erros de validação",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_7",
+          "skill_15",
+          "skill_17",
+          "skill_19"
+        ]
+      },
+      {
+        "id": 53,
+        "title": "Validar HTTP 404 para Recursos Inexistentes",
+        "requirements": [14],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna status HTTP 404 Not Found para recursos inexistentes",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_7",
+          "skill_15",
+          "skill_17",
+          "skill_19"
+        ]
+      },
+      {
+        "id": 54,
+        "title": "Estrutura de Erro Contém Campo 'erro'",
+        "requirements": [23],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que respostas de erro contêm o campo 'erro' conforme contrato da API",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 55,
+        "title": "Estrutura de Erro Contém Campo 'mensagem'",
+        "requirements": [23],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que respostas de erro contêm o campo 'mensagem' conforme contrato da API",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 56,
+        "title": "Estrutura de Erro Pode Conter 'detalhes'",
+        "requirements": [23],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que respostas de erro podem conter o campo opcional 'detalhes'",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 57,
+        "title": "Mensagens de Erro em Português",
+        "requirements": [23],
+        "type": "Não-Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que todas as mensagens de erro são retornadas em português",
+        "skillsAwarded": ["skill_2", "skill_7", "skill_17"]
+      },
+      {
+        "id": 58,
+        "title": "Erro de Tipo Lista Valores Válidos",
+        "requirements": [5, 23],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que erro de validação de 'tipo' lista os valores válidos aceitos",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 59,
+        "title": "Content-Type application/json",
+        "requirements": [23],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que todas as respostas têm Content-Type 'application/json'",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 60,
+        "title": "Resposta de Pet Contém Todos os Campos",
+        "requirements": [1, 2, 3, 7],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a resposta de pet contém todos os campos obrigatórios esperados",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 61,
+        "title": "ID no Formato UUID v4",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o campo 'id' retornado está no formato UUID v4 válido",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 62,
+        "title": "Timestamps no Formato ISO 8601",
+        "requirements": [7],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que criadoEm e atualizadoEm estão no formato ISO 8601",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 63,
+        "title": "Campos Opcionais Null Quando Não Fornecidos",
+        "requirements": [2],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que campos opcionais não fornecidos retornam null ou undefined",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_17", "skill_19"]
+      },
+      {
+        "id": 64,
+        "title": "Health Check Retorna Status OK",
+        "requirements": [28],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o endpoint de health check retorna status 'ok'",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 65,
+        "title": "Health Check Retorna Timestamp",
+        "requirements": [28],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o health check retorna campo timestamp com data/hora atual",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 66,
+        "title": "Health Check Retorna Uptime",
+        "requirements": [28],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o health check retorna o tempo de atividade do servidor",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 67,
+        "title": "Documentação Swagger Acessível",
+        "requirements": [29],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a documentação Swagger é acessível em /api-docs",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 68,
+        "title": "Endpoint Raiz Retorna Informações da API",
+        "requirements": [29],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o endpoint raiz (/) retorna informações sobre a API",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 69,
+        "title": "Headers CORS Presentes",
+        "requirements": [30],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que as respostas contêm headers CORS apropriados",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 70,
+        "title": "Whitespace Trimmed em Strings",
+        "requirements": [25],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que espaços em branco no início e fim de strings são removidos automaticamente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_17"]
+      },
+      {
+        "id": 71,
+        "title": "Múltiplos Pets com Mesmos Dados",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Verificar o comportamento ao criar múltiplos pets com dados idênticos",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_12",
+          "skill_14",
+          "skill_9",
+          "skill_17"
+        ]
+      },
+      {
+        "id": 72,
+        "title": "UUID Único para Cada Pet",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que cada pet criado recebe um UUID único, mesmo com dados iguais",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_17"]
+      },
+      {
+        "id": 73,
+        "title": "Atualizar Pet para Valores Originais",
+        "requirements": [17, 27],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Exploratório",
+        "description": "Verificar o comportamento ao atualizar um pet de volta aos valores originais",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_14", "skill_17"]
+      },
+      {
+        "id": 74,
+        "title": "Deletar e Recriar Pet com Mesmos Dados",
+        "requirements": [21, 1, 3],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Verificar comportamento ao deletar e recriar pet com dados idênticos (deve ter novo UUID)",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_12",
+          "skill_14",
+          "skill_9",
+          "skill_17"
+        ]
+      },
+      {
+        "id": 75,
+        "title": "Listagem Vazia Quando Não Há Correspondências",
+        "requirements": [9, 10, 11],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que filtros sem correspondência retornam array vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_17"]
+      },
+      {
+        "id": 76,
+        "title": "Fluxo CRUD Completo",
+        "requirements": [1, 9, 13, 17, 21],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Testar sequência completa: criar, listar, buscar, atualizar e deletar um pet",
+        "skillsAwarded": ["skill_1", "skill_5", "skill_17"]
+      },
+      {
+        "id": 77,
+        "title": "Persistência Durante Uptime do Servidor",
+        "requirements": [27],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que dados persistem em memória enquanto o servidor está em execução",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 78,
+        "title": "JSON Malformado no Body",
+        "requirements": [24],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro apropriado para JSON malformado",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_15", "skill_17"]
+      },
+      {
+        "id": 79,
+        "title": "Erro de Sintaxe JSON",
+        "requirements": [24],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna erro HTTP 400 para erros de sintaxe JSON",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      }
+    ],
+    "skillsAwarded": [
+      "skill_1",
+      "skill_7",
+      "skill_10",
+      "skill_11",
+      "skill_13",
+      "skill_15",
+      "skill_17",
+      "skill_18",
+      "skill_19"
+    ]
+  }
 ]
