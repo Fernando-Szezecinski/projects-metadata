@@ -9,7 +9,7 @@
     "level": "Iniciante",
     "platform": "Web",
     "access": {
-      "link": "https://qa-kitchen-app.vercel.app/",
+      "links": ["https://qa-kitchen-app.vercel.app/"],
       "user": "-",
       "pass": "-"
     },
@@ -190,7 +190,7 @@
     "level": "Iniciante",
     "platform": "API",
     "access": {
-      "link": "https://qa-pet-api.vercel.app/api-docs/ and https://qa-pet-api.vercel.app/health",
+      "links": ["https://qa-pet-api.vercel.app/api-docs/", "https://qa-pet-api.vercel.app/api-do"],
       "user": "-",
       "pass": "-"
     },
