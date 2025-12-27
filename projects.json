@@ -190,7 +190,7 @@
     "level": "Iniciante",
     "platform": "API",
     "access": {
-      "links": ["https://qa-pet-api.vercel.app/api-docs/", "https://qa-pet-api.vercel.app/api-do"],
+      "links": ["https://qa-pet-api.vercel.app/api-docs/", "https://qa-pet-api.vercel.app/health"],
       "user": "-",
       "pass": "-"
     },
