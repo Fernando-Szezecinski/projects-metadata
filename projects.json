@@ -1338,5 +1338,145 @@
         "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
       }
     ]
+  },
+    {
+    "_id": 7,
+    "name": "QA Plataforma de Blog",
+    "enabled": false,
+    "description": "Plataforma de blog com posts, comentários e sistema de busca para testes manuais de conteúdo e interação",
+    "longDescription": "Sistema de blog completo onde usuários podem criar posts, adicionar comentários, curtir publicações, buscar por tags e categorias. Inclui editor de texto rico, upload de imagens e perfil de autor. Ideal para testar fluxos de criação de conteúdo, validação de formulários, interações sociais e funcionalidades de busca 📰💬",
+    "imageUrl": "https://images.pexels.com/photos/34600/pexels-photo.jpg",
+    "type": "Projeto UI Manual",
+    "level": "Intermediário",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
+  },
+  {
+    "_id": 8,
+    "name": "QA Painel Bancário",
+    "enabled": false,
+    "description": "Dashboard bancário com transações, transferências e gráficos para automação de testes de aplicações financeiras",
+    "longDescription": "Aplicação de internet banking com dashboard de saldo, histórico de transações, transferências entre contas, pagamento de boletos e visualização de gráficos financeiros. Perfeita para praticar automação em aplicações financeiras, validação de cálculos, testes de segurança e análise de dados sensíveis 💰📊",
+    "imageUrl": "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg",
+    "type": "Projeto de Automação Funcional UI",
+    "level": "Avançado",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
+  },
+  {
+    "_id": 9,
+    "name": "QA API do Clima",
+    "enabled": false,
+    "description": "API de previsão do tempo com endpoints de consulta por cidade, coordenadas e histórico meteorológico",
+    "longDescription": "API REST que fornece dados meteorológicos incluindo previsão atual, próximos 7 dias, histórico e alertas climáticos. Suporta consultas por nome da cidade, código postal, coordenadas geográficas e IDs de localização. Ideal para praticar testes de API com dados externos, validação de respostas complexas, cache e rate limiting ☀️🌧️",
+    "imageUrl": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
+    "type": "Projeto de API",
+    "level": "Intermediário",
+    "platform": "API",
+    "access": {
+      "links": ["#", "#"]
+    }
+  },
+  {
+    "_id": 10,
+    "name": "QA Rastreador de Fitness",
+    "enabled": false,
+    "description": "App de acompanhamento de exercícios e dieta com registro de atividades e metas para testes exploratórios",
+    "longDescription": "Aplicação de saúde e fitness para registrar exercícios, acompanhar calorias, definir metas de treino e visualizar progresso através de gráficos. Inclui calculadora de IMC, cronômetro de treino e calendário de atividades. Ótimo para explorar testes de usabilidade, validação de cálculos e persistência de dados 💪🏃",
+    "imageUrl": "https://images.pexels.com/photos/4162488/pexels-photo-4162488.jpeg",
+    "type": "Projeto UI Manual",
+    "level": "Intermediário",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
+  },
+  {
+    "_id": 11,
+    "name": "QA Plataforma EAD",
+    "enabled": false,
+    "description": "Plataforma de cursos online com vídeos, quizzes e certificados para automação de testes educacionais complexos",
+    "longDescription": "Sistema completo de ensino à distância com catálogo de cursos, player de vídeo, quizzes interativos, progresso do aluno, emissão de certificados e área de discussão. Suporta múltiplos formatos de conteúdo e avaliações. Perfeito para automação de fluxos educacionais complexos, validação de progresso e testes de mídia 🎓📚",
+    "imageUrl": "https://images.pexels.com/photos/5905700/pexels-photo-5905700.jpeg",
+    "type": "Projeto de Automação Funcional UI",
+    "level": "Avançado",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
+  },
+  {
+    "_id": 12,
+    "name": "QA API de Produtos",
+    "enabled": false,
+    "description": "API de catálogo de produtos com categorias, estoque, preços e imagens para testes de e-commerce backend",
+    "longDescription": "API REST completa para gerenciamento de catálogo de produtos e-commerce incluindo CRUD de produtos, categorias, variações (tamanho, cor), controle de estoque, histórico de preços, upload de imagens e busca avançada com filtros. Ideal para testes de integração, validação de regras de negócio e performance 🛍️📦",
+    "imageUrl": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+    "type": "Projeto de API",
+    "level": "Intermediário",
+    "platform": "API",
+    "access": {
+      "links": ["#", "#"]
+    }
+  },
+  {
+    "_id": 13,
+    "name": "QA Gerenciador de Eventos",
+    "enabled": false,
+    "description": "Sistema de gerenciamento de eventos com inscrições, check-in e lista de participantes para testes manuais",
+    "longDescription": "Aplicação para criar e gerenciar eventos presenciais e online. Funcionalidades incluem criação de eventos, venda de ingressos, inscrição de participantes, QR code para check-in, envio de e-mails de confirmação e relatórios de presença. Excelente para testar fluxos de compra, validação de formulários e geração de relatórios 🎟️🎉",
+    "imageUrl": "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg",
+    "type": "Projeto UI Manual",
+    "level": "Intermediário",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
+  },
+  {
+    "_id": 14,
+    "name": "QA Portal Imobiliário",
+    "enabled": false,
+    "description": "Portal imobiliário com busca de imóveis, filtros avançados e agendamento de visitas para automação E2E",
+    "longDescription": "Plataforma completa de imóveis com busca por localização, tipo, preço e características, visualização de fotos e vídeos, mapa interativo, calculadora de financiamento, comparação de imóveis, favoritos e agendamento de visitas. Ideal para automação de buscas complexas, interação com mapas e formulários multi-etapa 🏠🔑",
+    "imageUrl": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg",
+    "type": "Projeto de Automação Funcional UI",
+    "level": "Avançado",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
+  },
+  {
+    "_id": 15,
+    "name": "QA API de Filmes",
+    "enabled": false,
+    "description": "API de filmes e séries com informações, avaliações e recomendações para testes de APIs de entretenimento",
+    "longDescription": "API REST de catálogo de filmes e séries com endpoints para busca, detalhes de títulos, elenco, avaliações de usuários, listas personalizadas, recomendações baseadas em gênero e sistema de ratings. Suporta paginação, ordenação e filtros múltiplos. Ótima para testes de APIs complexas, validação de relacionamentos e performance 🎬🍿",
+    "imageUrl": "https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg",
+    "type": "Projeto de API",
+    "level": "Intermediário",
+    "platform": "API",
+    "access": {
+      "links": ["#", "#"]
+    }
+  },
+  {
+    "_id": 16,
+    "name": "QA Feed Social",
+    "enabled": false,
+    "description": "Rede social com feed de posts, curtidas, comentários e mensagens para testes de aplicações sociais",
+    "longDescription": "Mini rede social com feed infinito, criação de posts com texto/imagens, sistema de curtidas e comentários, notificações em tempo real, mensagens privadas, perfis de usuário e seguir/deixar de seguir. Perfeito para explorar testes de interação social, validação de notificações, atualização em tempo real e experiência do usuário 📱👥",
+    "imageUrl": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+    "type": "Projeto UI Manual",
+    "level": "Avançado",
+    "platform": "Web",
+    "access": {
+      "links": ["#"]
+    }
   }
 ]
