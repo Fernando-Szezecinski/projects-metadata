@@ -2,6 +2,7 @@
   {
     "_id": 1,
     "name": "QA Kitchen",
+    "enabled": true,
     "description": "App de receitas onde o tempero principal são os bugs",
     "longDescription": "QA Kitchen é um app de receitas onde o tempero principal são os bugs 🐞\nNada aqui é perfeito de propósito: cadastre receitas, explore o sistema e encontre falhas escondidas enquanto treina seu olhar de QA ✅.",
     "imageUrl": "https://images.pexels.com/photos/744780/pexels-photo-744780.jpeg",
@@ -183,6 +184,7 @@
   {
     "_id": 2,
     "name": "QA PET API",
+    "enabled": true,
     "description": "API REST para prática de testes de QA com CRUD completo de pets, validações e documentação Swagger em português",
     "longDescription": "API REST educacional desenvolvida especificamente para treinamento e prática de testes de QA (manual e automação). Oferece um CRUD completo para gerenciamento de pets (animais de estimação) com validações robustas, códigos HTTP corretos, respostas padronizadas e documentação interativa via Swagger UI. Ideal para praticar testes positivos, negativos, de contrato, integração e automação. Toda documentação, mensagens e propriedades estão em português (pt-BR) para facilitar o aprendizado.",
     "imageUrl": "https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg",
@@ -1060,6 +1062,7 @@
   {
     "_id": 3,
     "name": "QA Feira App",
+    "enabled": true,
     "description": "Sistema de e-commerce de feira com carrinho e checkout, desenvolvido para treino de automação de testes funcionais.",
     "longDescription": "Aplicação web simples de compras em uma feira de frutas, criada como ambiente de prática para QA, com o objetivo de desenvolver e fortalecer experiência em automação de testes funcionais, análise de fluxos e validação de requisitos 🎯 ✅.",
     "imageUrl": "https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg",
