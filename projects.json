@@ -1061,7 +1061,7 @@
     "_id": 3,
     "name": "QA Feira App",
     "description": "Sistema de e-commerce de feira com carrinho e checkout, desenvolvido para treino de automação de testes funcionais.",
-    "longDescription": "Aplicação web simples de compras em uma feira de frutas, desenvolvida especificamente para treino de automação de testes funcionais ✅.",
+    "longDescription": "Aplicação web simples de compras em uma feira de frutas, criada como ambiente de prática para QA, com o objetivo de desenvolver e fortalecer experiência em automação de testes funcionais, análise de fluxos e validação de requisitos 🎯 ✅.",
     "imageUrl": "https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg",
     "type": "Projeto UI Automação",
     "level": "Intermediário",
