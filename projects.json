@@ -3,7 +3,7 @@
     "_id": 1,
     "name": "QA Kitchen",
     "description": "App de receitas onde o tempero principal são os bugs",
-    "longDescription": "QA Kitchen é um app de receitas onde o tempero principal são os bugs 🐞\nNada aqui é perfeito de propósito: cadastre receitas, explore o sistema e encontre falhas escondidas enquanto treina seu olhar de QA.\nSe quebrou, funcionou — agora é só reportar 🍳✅",
+    "longDescription": "QA Kitchen é um app de receitas onde o tempero principal são os bugs 🐞\nNada aqui é perfeito de propósito: cadastre receitas, explore o sistema e encontre falhas escondidas enquanto treina seu olhar de QA ✅.",
     "imageUrl": "https://images.pexels.com/photos/744780/pexels-photo-744780.jpeg",
     "type": "Projeto UI Manual",
     "level": "Iniciante",
