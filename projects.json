@@ -190,7 +190,10 @@
     "level": "Iniciante",
     "platform": "API",
     "access": {
-      "links": ["https://qa-pet-api.vercel.app/api-docs/", "https://qa-pet-api.vercel.app/health"],
+      "links": [
+        "https://qa-pet-api.vercel.app/api-docs/",
+        "https://qa-pet-api.vercel.app/health"
+      ],
       "user": "-",
       "pass": "-"
     },
@@ -1052,6 +1055,285 @@
       "skill_17",
       "skill_18",
       "skill_19"
+    ]
+  },
+  {
+    "_id": 3,
+    "name": "QA Feira App",
+    "description": "Sistema de e-commerce de feira de frutas com carrinho e checkout",
+    "longDescription": "Aplicação web simples de compras em uma feira de frutas, desenvolvida especificamente para treino de automação de testes ✅.",
+    "imageUrl": "https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg",
+    "type": "Projeto UI Automação",
+    "level": "Intermediário",
+    "platform": "Web",
+    "access": {
+      "links": ["https://qa-feira-app.vercel.app/"],
+      "user": "-",
+      "pass": "-"
+    },
+    "requirements": [
+      "1. O sistema deve exibir uma lista de produtos com nome, preço, categoria, estoque e imagem.",
+      "2. O usuário pode buscar produtos pelo nome através de um campo de busca.",
+      "3. O usuário pode filtrar produtos por categoria (frutas, legumes, orgânicos).",
+      "4. O usuário pode ordenar produtos por nome ou preço.",
+      "5. O sistema deve exibir um contador com o total de produtos encontrados após aplicar filtros.",
+      "6. O usuário pode adicionar produtos ao carrinho informando a quantidade desejada.",
+      "7. O sistema deve exibir um badge com o total de itens no carrinho na navegação.",
+      "8. O sistema deve exibir feedback visual quando um produto é adicionado ao carrinho.",
+      "9. O carrinho deve persistir os dados no localStorage do navegador.",
+      "10. O usuário pode visualizar todos os itens adicionados ao carrinho com seus detalhes.",
+      "11. O usuário pode aumentar ou diminuir a quantidade de um item no carrinho.",
+      "12. O usuário pode remover um item do carrinho.",
+      "13. O sistema deve calcular e exibir o subtotal de cada item no carrinho.",
+      "14. O sistema deve calcular e exibir o valor total do carrinho.",
+      "15. O usuário pode finalizar o pedido através do botão 'Finalizar Pedido'.",
+      "16. O sistema deve exibir um modal de confirmação antes de finalizar o pedido.",
+      "17. O sistema deve limpar o carrinho após a confirmação do pedido.",
+      "18. O sistema deve exibir mensagem de carrinho vazio quando não há itens.",
+      "19. O sistema deve navegar entre as páginas de Produtos e Carrinho.",
+      "20. O sistema deve exibir um estado de loading ao carregar a página de produtos."
+    ],
+    "scenarios": [
+      {
+        "id": 1,
+        "title": "Visualizar Lista de Produtos",
+        "requirements": [1, 20],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao acessar a página de produtos, o sistema exibe uma lista com todos os produtos disponíveis contendo nome, preço, categoria, estoque e imagem, após o estado de loading.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 2,
+        "title": "Busca de Produto por Nome - Resultado Encontrado",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao digitar 'maçã' no campo de busca, o sistema filtra e exibe apenas produtos que contém 'maçã' no nome e atualiza o contador de resultados.",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+      },
+      {
+        "id": 3,
+        "title": "Busca de Produto - Sem Resultados",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao buscar por um produto inexistente (ex: 'abacaxi'), o sistema exibe mensagem de nenhum resultado encontrado e contador zerado.",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15"]
+      },
+      {
+        "id": 4,
+        "title": "Filtrar Produtos por Categoria",
+        "requirements": [3, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao selecionar uma categoria específica (ex: 'frutas'), o sistema filtra e exibe apenas produtos dessa categoria e atualiza o contador.",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+      },
+      {
+        "id": 5,
+        "title": "Ordenar Produtos por Nome",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao selecionar ordenação por 'Nome', os produtos são exibidos em ordem alfabética crescente.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 6,
+        "title": "Ordenar Produtos por Preço",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao selecionar ordenação por 'Preço', os produtos são exibidos do menor para o maior preço.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 7,
+        "title": "Adicionar Produto ao Carrinho - Primeira Vez",
+        "requirements": [6, 7, 8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar em 'Adicionar ao Carrinho' de um produto pela primeira vez, o produto é adicionado, o badge do carrinho é atualizado e feedback visual é exibido.",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+      },
+      {
+        "id": 8,
+        "title": "Adicionar Produto Duplicado ao Carrinho",
+        "requirements": [6, 7],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao adicionar o mesmo produto novamente, a quantidade é incrementada ao invés de criar um novo item no carrinho.",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+      },
+      {
+        "id": 9,
+        "title": "Persistência do Carrinho no LocalStorage",
+        "requirements": [9],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que após adicionar produtos ao carrinho e recarregar a página, os itens permanecem salvos no carrinho.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 10,
+        "title": "Visualizar Carrinho com Itens",
+        "requirements": [10, 13, 14],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao navegar para o carrinho após adicionar produtos, todos os itens são exibidos com seus detalhes, subtotais e o valor total correto.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 11,
+        "title": "Aumentar Quantidade de Item no Carrinho",
+        "requirements": [11, 13, 14],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar no botão '+' de um item no carrinho, a quantidade aumenta em 1 e os valores de subtotal e total são recalculados corretamente.",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+      },
+      {
+        "id": 12,
+        "title": "Diminuir Quantidade de Item no Carrinho",
+        "requirements": [11, 13, 14],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar no botão '-' de um item com quantidade maior que 1, a quantidade diminui em 1 e os valores são recalculados.",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+      },
+      {
+        "id": 13,
+        "title": "Remover Item com Quantidade Mínima",
+        "requirements": [11, 12],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao diminuir a quantidade de um item para 0 (ou tentar diminuir quando está em 1), o item é removido do carrinho.",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+      },
+      {
+        "id": 14,
+        "title": "Remover Item pelo Botão Remover",
+        "requirements": [12, 14],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar no botão de remover (🗑️), o item é removido do carrinho e o valor total é recalculado.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 15,
+        "title": "Exibir Carrinho Vazio",
+        "requirements": [18],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao acessar a página do carrinho sem itens adicionados, o sistema exibe a mensagem 'Seu carrinho está vazio'.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 16,
+        "title": "Abrir Modal de Confirmação de Pedido",
+        "requirements": [15, 16],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar em 'Finalizar Pedido', um modal de confirmação é exibido com o valor total do pedido.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 17,
+        "title": "Confirmar Finalização de Pedido",
+        "requirements": [15, 16, 17],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao confirmar o pedido no modal, o carrinho é limpo, uma mensagem de sucesso é exibida e o modal é fechado.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 18,
+        "title": "Cancelar Finalização de Pedido",
+        "requirements": [16],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao clicar em 'Cancelar' no modal de confirmação, o modal é fechado e os itens permanecem no carrinho.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_15"]
+      },
+      {
+        "id": 19,
+        "title": "Navegação entre Páginas",
+        "requirements": [19],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o usuário pode navegar entre as páginas de 'Produtos' e 'Carrinho' através dos botões de navegação e a página ativa é destacada visualmente.",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+      },
+      {
+        "id": 20,
+        "title": "Visualização do Badge do Carrinho",
+        "requirements": [7],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o badge do carrinho exibe '0' quando vazio, e atualiza corretamente conforme itens são adicionados ou removidos.",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+      },
+      {
+        "id": 21,
+        "title": "Cálculo de Subtotal e Total",
+        "requirements": [13, 14],
+        "type": "Funcional",
+        "technique": "Caixa-Branca",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o cálculo do subtotal (preço × quantidade) e total (soma de todos subtotais) está correto considerando múltiplos produtos e quantidades diferentes.",
+        "skillsAwarded": ["skill_1", "skill_8", "skill_13"]
+      },
+      {
+        "id": 22,
+        "title": "Filtros Combinados - Busca e Categoria",
+        "requirements": [2, 3, 5],
+        "type": "Funcional",
+        "technique": "Combinação",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao aplicar busca por texto e filtro de categoria simultaneamente, o sistema retorna apenas produtos que atendem ambos os critérios.",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+      },
+      {
+        "id": 23,
+        "title": "Exploração de Estoque Zerado",
+        "requirements": [1, 6],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar o comportamento do sistema ao tentar adicionar produtos com estoque zerado ou verificar se há validação de estoque disponível.",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14"]
+      },
+      {
+        "id": 24,
+        "title": "Edição Manual de Quantidade - Valores Inválidos",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar o comportamento do sistema ao inserir valores inválidos no campo de quantidade (negativos, zero, não numéricos, muito grandes).",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15"]
+      }
     ]
   }
 ]
