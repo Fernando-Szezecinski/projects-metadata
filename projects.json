@@ -1102,7 +1102,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao acessar a página de produtos, o sistema exibe uma lista com todos os produtos disponíveis contendo nome, preço, categoria, estoque e imagem, após o estado de loading.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 2,
@@ -1112,7 +1112,7 @@
         "technique": "Partição de Equivalência",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao digitar 'maçã' no campo de busca, o sistema filtra e exibe apenas produtos que contém 'maçã' no nome e atualiza o contador de resultados.",
-        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
       },
       {
         "id": 3,
@@ -1122,7 +1122,7 @@
         "technique": "Partição de Equivalência",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao buscar por um produto inexistente (ex: 'abacaxi'), o sistema exibe mensagem de nenhum resultado encontrado e contador zerado.",
-        "skillsAwarded": ["skill_1", "skill_10", "skill_15"]
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
       },
       {
         "id": 4,
@@ -1132,7 +1132,7 @@
         "technique": "Partição de Equivalência",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao selecionar uma categoria específica (ex: 'frutas'), o sistema filtra e exibe apenas produtos dessa categoria e atualiza o contador.",
-        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
       },
       {
         "id": 5,
@@ -1142,7 +1142,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao selecionar ordenação por 'Nome', os produtos são exibidos em ordem alfabética crescente.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 6,
@@ -1152,7 +1152,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao selecionar ordenação por 'Preço', os produtos são exibidos do menor para o maior preço.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 7,
@@ -1162,7 +1162,7 @@
         "technique": "Partição de Equivalência",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao clicar em 'Adicionar ao Carrinho' de um produto pela primeira vez, o produto é adicionado, o badge do carrinho é atualizado e feedback visual é exibido.",
-        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
       },
       {
         "id": 8,
@@ -1172,7 +1172,7 @@
         "technique": "Partição de Equivalência",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao adicionar o mesmo produto novamente, a quantidade é incrementada ao invés de criar um novo item no carrinho.",
-        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
       },
       {
         "id": 9,
@@ -1182,7 +1182,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que após adicionar produtos ao carrinho e recarregar a página, os itens permanecem salvos no carrinho.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 10,
@@ -1192,7 +1192,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao navegar para o carrinho após adicionar produtos, todos os itens são exibidos com seus detalhes, subtotais e o valor total correto.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 11,
@@ -1202,7 +1202,7 @@
         "technique": "Valor Limite",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao clicar no botão '+' de um item no carrinho, a quantidade aumenta em 1 e os valores de subtotal e total são recalculados corretamente.",
-        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_16"]
       },
       {
         "id": 12,
@@ -1212,7 +1212,7 @@
         "technique": "Valor Limite",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao clicar no botão '-' de um item com quantidade maior que 1, a quantidade diminui em 1 e os valores são recalculados.",
-        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_16"]
       },
       {
         "id": 13,
@@ -1222,7 +1222,7 @@
         "technique": "Valor Limite",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao diminuir a quantidade de um item para 0 (ou tentar diminuir quando está em 1), o item é removido do carrinho.",
-        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_16"]
       },
       {
         "id": 14,
@@ -1232,7 +1232,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao clicar no botão de remover (🗑️), o item é removido do carrinho e o valor total é recalculado.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 15,
@@ -1242,7 +1242,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao acessar a página do carrinho sem itens adicionados, o sistema exibe a mensagem 'Seu carrinho está vazio'.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 16,
@@ -1252,7 +1252,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao clicar em 'Finalizar Pedido', um modal de confirmação é exibido com o valor total do pedido.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 17,
@@ -1262,7 +1262,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao confirmar o pedido no modal, o carrinho é limpo, uma mensagem de sucesso é exibida e o modal é fechado.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 18,
@@ -1272,7 +1272,7 @@
         "technique": "Caixa-Preta",
         "approach": "Cenário Negativo",
         "description": "Verificar que ao clicar em 'Cancelar' no modal de confirmação, o modal é fechado e os itens permanecem no carrinho.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_15"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_15", "skill_16"]
       },
       {
         "id": 19,
@@ -1282,7 +1282,7 @@
         "technique": "Caixa-Preta",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que o usuário pode navegar entre as páginas de 'Produtos' e 'Carrinho' através dos botões de navegação e a página ativa é destacada visualmente.",
-        "skillsAwarded": ["skill_1", "skill_7", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
       },
       {
         "id": 20,
@@ -1292,7 +1292,7 @@
         "technique": "Valor Limite",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que o badge do carrinho exibe '0' quando vazio, e atualiza corretamente conforme itens são adicionados ou removidos.",
-        "skillsAwarded": ["skill_1", "skill_11", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_16"]
       },
       {
         "id": 21,
@@ -1302,7 +1302,7 @@
         "technique": "Caixa-Branca",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que o cálculo do subtotal (preço × quantidade) e total (soma de todos subtotais) está correto considerando múltiplos produtos e quantidades diferentes.",
-        "skillsAwarded": ["skill_1", "skill_8", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_8", "skill_13", "skill_16"]
       },
       {
         "id": 22,
@@ -1312,7 +1312,7 @@
         "technique": "Combinação",
         "approach": "Baseado em Requisitos",
         "description": "Verificar que ao aplicar busca por texto e filtro de categoria simultaneamente, o sistema retorna apenas produtos que atendem ambos os critérios.",
-        "skillsAwarded": ["skill_1", "skill_10", "skill_13"]
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
       },
       {
         "id": 23,
@@ -1322,7 +1322,7 @@
         "technique": "Error Guessing",
         "approach": "Exploratório",
         "description": "Explorar o comportamento do sistema ao tentar adicionar produtos com estoque zerado ou verificar se há validação de estoque disponível.",
-        "skillsAwarded": ["skill_1", "skill_12", "skill_14"]
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_16"]
       },
       {
         "id": 24,
@@ -1332,7 +1332,7 @@
         "technique": "Valor Limite",
         "approach": "Cenário Negativo",
         "description": "Verificar o comportamento do sistema ao inserir valores inválidos no campo de quantidade (negativos, zero, não numéricos, muito grandes).",
-        "skillsAwarded": ["skill_1", "skill_11", "skill_15"]
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
       }
     ]
   }
