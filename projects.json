@@ -2227,18 +2227,356 @@
     ]
   },
   {
-    "_id": 8,
-    "name": "QA Painel Bancário",
-    "enabled": false,
-    "description": "Dashboard bancário com transações, transferências e gráficos para automação de testes de aplicações financeiras",
-    "longDescription": "Aplicação de internet banking com dashboard de saldo, histórico de transações, transferências entre contas, pagamento de boletos e visualização de gráficos financeiros. Perfeita para praticar automação em aplicações financeiras, validação de cálculos, testes de segurança e análise de dados sensíveis 💰📊",
+    "_id": 5,
+    "name": "QA Bank",
+    "enabled": true,
+    "description": "Dashboard bancário com saldo, transações, transferências e gráficos de despesas para prática de testes UI",
+    "longDescription": "Aplicação de dashboard financeiro simulando um sistema bancário simplificado. Permite visualizar saldo, histórico de transações, realizar transferências com validação de saldo, categorizar despesas e visualizar gráficos de gastos por categoria. 💰📊",
     "imageUrl": "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg",
     "type": "Projeto de Automação Funcional UI",
-    "level": "Avançado",
+    "level": "Iniciante",
     "platform": "Web",
     "access": {
-      "links": ["#"]
-    }
+      "links": ["https://qa-bank.vercel.app/"],
+      "user": "-",
+      "pass": "-"
+    },
+    "requirements": [
+      "1. O sistema deve exibir o saldo atual da conta formatado em reais (R$)",
+      "2. O sistema deve exibir uma lista de transações recentes mostrando descrição, valor, data, tipo (crédito/débito) e categoria",
+      "3. O sistema deve diferenciar visualmente transações de crédito (entrada) e débito (saída)",
+      "4. O usuário pode realizar uma transferência informando conta de destino, valor, categoria e descrição opcional",
+      "5. O campo conta de destino é obrigatório para realizar transferência",
+      "6. O campo valor é obrigatório e deve aceitar apenas números positivos maiores que zero",
+      "7. O sistema deve validar se há saldo suficiente antes de realizar a transferência",
+      "8. O sistema deve exibir mensagem de erro quando o saldo for insuficiente",
+      "9. Ao realizar transferência com sucesso, o saldo deve ser atualizado imediatamente",
+      "10. Ao realizar transferência com sucesso, uma nova transação deve ser adicionada ao histórico",
+      "11. O sistema deve permitir categorizar transferências (ex: Transferências, Contas, Lazer)",
+      "12. A categoria padrão deve ser 'Transferências' quando não especificada",
+      "13. O sistema deve exibir gráfico de pizza mostrando despesas por categoria",
+      "14. O gráfico deve mostrar apenas transações de débito agrupadas por categoria",
+      "15. O gráfico deve exibir percentual de cada categoria",
+      "16. O sistema deve formatar valores monetários no padrão brasileiro (R$ 1.234,56)",
+      "17. O sistema deve formatar datas no padrão brasileiro (dd/mm/aaaa)",
+      "18. O sistema deve limpar os campos do formulário após transferência bem-sucedida",
+      "19. O sistema deve exibir notificação de sucesso após transferência realizada",
+      "20. A notificação de sucesso deve desaparecer automaticamente após alguns segundos",
+      "21. O sistema deve iniciar com um saldo predefinido e uma transação de crédito inicial",
+      "22. Os dados do sistema devem ser mantidos apenas em memória (sem persistência)"
+    ],
+    "scenarios": [
+      {
+        "id": 1,
+        "title": "Visualizar Saldo Inicial",
+        "requirements": [1, 21],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao carregar a aplicação, o saldo inicial é exibido corretamente formatado em reais",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 2,
+        "title": "Visualizar Transação Inicial",
+        "requirements": [2, 21],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o sistema inicia com uma transação de crédito (salário) exibida no histórico",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 3,
+        "title": "Diferenciação Visual de Crédito e Débito",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que transações de crédito e débito possuem indicadores visuais diferentes (cores, ícones, sinais)",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 4,
+        "title": "Transferência Completa com Todos os Campos",
+        "requirements": [4, 9, 10, 18, 19],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao preencher todos os campos (conta, valor, categoria, descrição) e realizar transferência, o saldo é atualizado, nova transação aparece no histórico, formulário é limpo e notificação é exibida",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 5,
+        "title": "Transferência Apenas com Campos Obrigatórios",
+        "requirements": [4, 5, 6, 12],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que é possível realizar transferência informando apenas conta e valor, usando categoria padrão 'Transferências'",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 6,
+        "title": "Campo Conta de Destino Vazio",
+        "requirements": [5],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede transferência quando o campo conta de destino está vazio",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
+      },
+      {
+        "id": 7,
+        "title": "Campo Valor Vazio",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede transferência quando o campo valor está vazio",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
+      },
+      {
+        "id": 8,
+        "title": "Valor Zero ou Negativo",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema rejeita valores zero ou negativos no campo valor",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
+      },
+      {
+        "id": 9,
+        "title": "Validação de Saldo Insuficiente",
+        "requirements": [7, 8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao tentar transferir valor maior que o saldo disponível, o sistema exibe mensagem de erro e não realiza a operação",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 10,
+        "title": "Atualização de Saldo Após Transferência",
+        "requirements": [9],
+        "type": "Funcional",
+        "technique": "Caixa-Branca",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o saldo exibido é calculado corretamente após realizar transferência (saldo anterior - valor transferido)",
+        "skillsAwarded": ["skill_1", "skill_8", "skill_13", "skill_16"]
+      },
+      {
+        "id": 11,
+        "title": "Nova Transação no Histórico",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que após transferência, uma nova transação de débito aparece no topo da lista de transações",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 12,
+        "title": "Categorização Personalizada",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao especificar categoria personalizada, a transação é criada com essa categoria",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 13,
+        "title": "Categoria Padrão Aplicada",
+        "requirements": [12],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que quando categoria não é especificada, 'Transferências' é usada como padrão",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 14,
+        "title": "Visualização do Gráfico de Despesas",
+        "requirements": [13, 14],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o gráfico de pizza exibe apenas transações de débito agrupadas por categoria",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 15,
+        "title": "Percentuais no Gráfico",
+        "requirements": [15],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que cada fatia do gráfico exibe o percentual correspondente à categoria",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 16,
+        "title": "Formatação de Valores Monetários",
+        "requirements": [16],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que todos os valores são exibidos no formato brasileiro (R$ 1.234,56)",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 17,
+        "title": "Formatação de Datas",
+        "requirements": [17],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que as datas das transações são exibidas no formato dd/mm/aaaa",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 18,
+        "title": "Limpeza de Formulário Após Sucesso",
+        "requirements": [18],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que todos os campos do formulário são limpos após transferência bem-sucedida",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 19,
+        "title": "Exibição de Notificação de Sucesso",
+        "requirements": [19],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que após transferência bem-sucedida, uma notificação de sucesso é exibida",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 20,
+        "title": "Desaparecimento Automático da Notificação",
+        "requirements": [20],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a notificação de sucesso desaparece automaticamente após alguns segundos (aproximadamente 3 segundos)",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 21,
+        "title": "Múltiplas Transferências Sequenciais",
+        "requirements": [9, 10],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que é possível realizar múltiplas transferências e o saldo é atualizado corretamente a cada operação",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 22,
+        "title": "Gráfico Atualiza com Novas Transações",
+        "requirements": [13, 14],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o gráfico de despesas é atualizado automaticamente ao adicionar novas transações",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 23,
+        "title": "Descrição da Transação Gerada",
+        "requirements": [4, 10],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a descrição da transação é gerada corretamente incluindo conta de destino e descrição opcional se fornecida",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 24,
+        "title": "Valores Decimais na Transferência",
+        "requirements": [6, 16],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o sistema aceita valores decimais (centavos) no campo valor (ex: 10.50, 100.99)",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 25,
+        "title": "Perda de Dados ao Recarregar Página",
+        "requirements": [22],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Verificar que ao recarregar a página, todas as transações realizadas são perdidas e o sistema volta ao estado inicial",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 26,
+        "title": "Conta de Destino com Formatos Diferentes",
+        "requirements": [5],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar o comportamento ao inserir diferentes formatos de conta (números, letras, caracteres especiais)",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 27,
+        "title": "Categoria com Caracteres Especiais",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar o comportamento ao inserir caracteres especiais no campo categoria",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 28,
+        "title": "Transferência de Todo o Saldo",
+        "requirements": [7, 9],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que é possível transferir exatamente o valor total do saldo disponível, resultando em saldo zero",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_16"]
+      },
+      {
+        "id": 29,
+        "title": "Fluxo Completo de Uso",
+        "requirements": [1, 2, 4, 9, 10, 13],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Testar fluxo completo: visualizar saldo e transações iniciais, realizar transferências com diferentes categorias, verificar atualizações no saldo, histórico e gráfico",
+        "skillsAwarded": ["skill_1", "skill_5", "skill_16"]
+      },
+      {
+        "id": 30,
+        "title": "Responsividade da Interface",
+        "requirements": [1, 2, 4, 13],
+        "type": "Não-Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Exploratório",
+        "description": "Verificar que a interface se adapta corretamente a diferentes tamanhos de tela (desktop, tablet, mobile)",
+        "skillsAwarded": ["skill_2", "skill_7", "skill_14", "skill_16"]
+      }
+    ],
+    "skillsAwarded": [
+      "skill_1",
+      "skill_7",
+      "skill_8",
+      "skill_10",
+      "skill_11",
+      "skill_13",
+      "skill_15",
+      "skill_16"
+    ]
   },
   {
     "_id": 10,
