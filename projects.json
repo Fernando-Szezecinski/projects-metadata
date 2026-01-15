@@ -1339,7 +1339,477 @@
       }
     ]
   },
-    {
+  {
+    "_id": 4,
+    "name": "QA Clima API",
+    "enabled": true,
+    "description": "API REST para dados meteorológicos com consulta por cidade, previsão de 2 dias e alertas climáticos",
+    "longDescription": "API REST educacional para praticar testes de API com dados meteorológicos mockados. Oferece consulta de clima atual por cidade, previsão para os próximos 2 dias, listagem de cidades disponíveis, gerenciamento de alertas climáticos com documentação Swagger/OpenAPI interativa. Ideal para treinar testes de API REST 🌤️☀️",
+    "imageUrl": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
+    "type": "Projeto de API",
+    "level": "Iniciante",
+    "platform": "API",
+    "access": {
+      "links": [
+        "https://qa-clima-api.vercel.app/api-docs",
+        "https://qa-clima-api.vercel.app/"
+      ],
+      "user": "-",
+      "pass": "-"
+    },
+    "requirements": [
+      "1. A API deve retornar a lista de todas as cidades disponíveis com slug, nome e estado",
+      "2. A API deve retornar o total de cidades disponíveis no endpoint de listagem",
+      "3. A API deve permitir consultar o clima atual de uma cidade usando o slug como parâmetro",
+      "4. A API deve retornar dados de clima contendo: temperatura, sensação térmica, umidade, vento, descrição e ícone",
+      "5. A API deve incluir um timestamp ISO 8601 no momento da consulta do clima",
+      "6. A API deve retornar HTTP 404 quando a cidade consultada não existir",
+      "7. A API deve retornar mensagem de erro informativa indicando cidades disponíveis quando cidade não for encontrada",
+      "8. A API deve validar o slug da cidade de forma case-insensitive (aceitar maiúsculas e minúsculas)",
+      "9. A API deve permitir consultar a previsão do tempo para os próximos 2 dias de uma cidade",
+      "10. A API deve retornar previsões contendo: data, temperatura máxima, temperatura mínima, descrição e ícone",
+      "11. A API deve incluir o nome e estado da cidade na resposta de previsão",
+      "12. A API deve retornar HTTP 404 quando a previsão não estiver disponível para a cidade",
+      "13. A API deve permitir listar todos os alertas climáticos ativos",
+      "14. A API deve permitir filtrar alertas por cidade usando query parameter",
+      "15. A API deve retornar o total de alertas no endpoint de listagem",
+      "16. A API deve permitir criar um novo alerta climático via POST",
+      "17. A API deve validar campos obrigatórios ao criar alerta: cidade, tipo e mensagem",
+      "18. A API deve retornar HTTP 400 quando dados obrigatórios estiverem ausentes na criação de alerta",
+      "19. A API deve gerar automaticamente um ID único para cada alerta criado",
+      "20. A API deve definir automaticamente o timestamp de início do alerta",
+      "21. A API deve aceitar campos opcionais ao criar alerta: severidade e dataFim",
+      "22. A API deve retornar HTTP 201 ao criar um alerta com sucesso",
+      "23. A API deve permitir deletar um alerta existente por ID",
+      "24. A API deve retornar HTTP 404 ao tentar deletar alerta inexistente",
+      "25. A API deve retornar mensagem de sucesso ao deletar alerta",
+      "26. A API deve fornecer documentação Swagger/OpenAPI acessível via /api-docs",
+      "27. A API deve ter uma rota raiz que retorna informações da API e endpoints disponíveis",
+      "28. A API deve retornar HTTP 404 para rotas inexistentes com mensagem apropriada"
+    ],
+    "scenarios": [
+      {
+        "id": 1,
+        "title": "Listar Todas as Cidades Disponíveis",
+        "requirements": [1, 2],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna todas as cidades disponíveis com slug, nome e estado, incluindo o total de cidades",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 2,
+        "title": "Consultar Clima Atual - Cidade Válida",
+        "requirements": [3, 4, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao consultar o clima de uma cidade válida (ex: sao-paulo), a API retorna todos os dados meteorológicos com timestamp",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 3,
+        "title": "Consultar Clima - Cidade Inexistente",
+        "requirements": [6, 7],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao consultar clima de cidade inexistente, a API retorna HTTP 404 com mensagem informativa",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 4,
+        "title": "Validação Case-Insensitive do Slug",
+        "requirements": [8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API aceita slug em diferentes formatos de capitalização (SAO-PAULO, Sao-Paulo, sao-paulo)",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 5,
+        "title": "Consultar Previsão de 2 Dias - Cidade Válida",
+        "requirements": [9, 10, 11],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna previsão para 2 dias com todas as informações meteorológicas e dados da cidade",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 6,
+        "title": "Previsão Indisponível para Cidade",
+        "requirements": [12],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao consultar previsão de cidade inexistente ou sem dados, a API retorna HTTP 404",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 7,
+        "title": "Listar Todos os Alertas Ativos",
+        "requirements": [13, 15],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API lista todos os alertas climáticos ativos com o total de alertas",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 8,
+        "title": "Filtrar Alertas por Cidade",
+        "requirements": [14],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao usar query parameter 'cidade', a API retorna apenas alertas da cidade especificada",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 9,
+        "title": "Criar Alerta com Campos Obrigatórios",
+        "requirements": [16, 17, 19, 20, 22],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API cria alerta com sucesso fornecendo apenas campos obrigatórios (cidade, tipo, mensagem), retornando HTTP 201 e ID gerado",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 10,
+        "title": "Criar Alerta com Todos os Campos",
+        "requirements": [16, 17, 21, 22],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API aceita campos opcionais (severidade, dataFim) ao criar alerta",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 11,
+        "title": "Criar Alerta Sem Campos Obrigatórios",
+        "requirements": [17, 18],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 ao tentar criar alerta sem campos obrigatórios",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 12,
+        "title": "Criar Alerta Sem Campo Cidade",
+        "requirements": [17, 18],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita criação de alerta quando campo 'cidade' está ausente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 13,
+        "title": "Criar Alerta Sem Campo Tipo",
+        "requirements": [17, 18],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita criação de alerta quando campo 'tipo' está ausente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 14,
+        "title": "Criar Alerta Sem Campo Mensagem",
+        "requirements": [17, 18],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API rejeita criação de alerta quando campo 'mensagem' está ausente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 15,
+        "title": "Timestamp Automático ao Criar Alerta",
+        "requirements": [20],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao criar alerta, o timestamp de início é definido automaticamente",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 16,
+        "title": "ID Único Gerado para Alerta",
+        "requirements": [19],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que cada alerta criado recebe um ID único gerado automaticamente",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 17,
+        "title": "Deletar Alerta Existente",
+        "requirements": [23, 25],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API permite deletar um alerta existente por ID e retorna mensagem de sucesso",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 18,
+        "title": "Deletar Alerta Inexistente",
+        "requirements": [24],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao tentar deletar alerta com ID inexistente, a API retorna HTTP 404",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 19,
+        "title": "Alerta Deletado Não Aparece na Listagem",
+        "requirements": [13, 23],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que após deletar alerta, ele não aparece mais na listagem de alertas",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      },
+      {
+        "id": 20,
+        "title": "Deletar com ID Inválido (Não Numérico)",
+        "requirements": [24],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Cenário Negativo",
+        "description": "Verificar comportamento ao tentar deletar alerta com ID em formato inválido (string, negativo)",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_15", "skill_17"]
+      },
+      {
+        "id": 21,
+        "title": "Documentação Swagger Acessível",
+        "requirements": [26],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a documentação Swagger está acessível e renderiza corretamente em /api-docs",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17"]
+      },
+      {
+        "id": 22,
+        "title": "Rota Raiz Retorna Informações da API",
+        "requirements": [27],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a rota raiz (/) retorna informações sobre versão, endpoints disponíveis e exemplos",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 23,
+        "title": "Rota Inexistente Retorna 404",
+        "requirements": [28],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao acessar rota inexistente, a API retorna HTTP 404 com mensagem apropriada",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 24,
+        "title": "Estrutura de Resposta de Clima",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a resposta de clima contém todos os campos esperados: temperatura, sensacao, umidade, vento, descricao, icone",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 25,
+        "title": "Estrutura de Resposta de Previsão",
+        "requirements": [10],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que cada previsão contém: data, temperaturaMax, temperaturaMin, descricao, icone",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 26,
+        "title": "Quantidade de Previsões Retornadas",
+        "requirements": [9],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna exatamente 2 previsões para os próximos dias",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_17"]
+      },
+      {
+        "id": 27,
+        "title": "Tipos de Dados Corretos na Resposta",
+        "requirements": [4],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que temperatura, umidade e vento são números, e descrição é string",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 28,
+        "title": "Validar HTTP 201 ao Criar Alerta",
+        "requirements": [22, 32],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a API retorna status HTTP 201 Created ao criar alerta com sucesso",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 29,
+        "title": "Validar HTTP 200 em Consultas",
+        "requirements": [32],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que consultas bem-sucedidas (clima, previsão, listagens) retornam HTTP 200",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 30,
+        "title": "Validar HTTP 400 em Erros de Validação",
+        "requirements": [18, 32],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que erros de validação retornam HTTP 400 Bad Request",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_7",
+          "skill_15",
+          "skill_17",
+          "skill_19"
+        ]
+      },
+      {
+        "id": 31,
+        "title": "Validar HTTP 404 para Recursos Inexistentes",
+        "requirements": [6, 12, 24, 32],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que recursos inexistentes retornam HTTP 404 Not Found",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_7",
+          "skill_15",
+          "skill_17",
+          "skill_19"
+        ]
+      },
+      {
+        "id": 32,
+        "title": "Estrutura de Erro Padronizada",
+        "requirements": [7],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que mensagens de erro contêm campos 'erro' e 'mensagem' de forma consistente",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_17", "skill_19"]
+      },
+      {
+        "id": 33,
+        "title": "Múltiplas Cidades na Listagem",
+        "requirements": [1, 2],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a listagem de cidades retorna múltiplas cidades e o contador corresponde ao total",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_17"]
+      },
+      {
+        "id": 34,
+        "title": "Slug com Caracteres Especiais",
+        "requirements": [3, 8],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar comportamento ao usar slug com caracteres especiais ou espaços",
+        "skillsAwarded": [
+          "skill_1",
+          "skill_12",
+          "skill_14",
+          "skill_9",
+          "skill_17"
+        ]
+      },
+      {
+        "id": 35,
+        "title": "Consulta com Slug Vazio",
+        "requirements": [6],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar comportamento ao consultar clima/previsão com slug vazio",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 36,
+        "title": "Body Vazio ao Criar Alerta",
+        "requirements": [17, 18],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que a API retorna HTTP 400 ao tentar criar alerta com body vazio",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_17"]
+      },
+      {
+        "id": 37,
+        "title": "JSON Malformado na Criação de Alerta",
+        "requirements": [18],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Cenário Negativo",
+        "description": "Verificar comportamento ao enviar JSON malformado no POST de alertas",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_15", "skill_17"]
+      },
+      {
+        "id": 38,
+        "title": "Filtro de Alertas com Cidade Inexistente",
+        "requirements": [14],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao filtrar alertas por cidade inexistente, retorna array vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_17"]
+      },
+      {
+        "id": 39,
+        "title": "Criar Múltiplos Alertas para Mesma Cidade",
+        "requirements": [16, 19],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que é possível criar vários alertas para a mesma cidade, cada um com ID único",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_17"]
+      }
+    ],
+    "skillsAwarded": [
+      "skill_1",
+      "skill_7",
+      "skill_10",
+      "skill_11",
+      "skill_13",
+      "skill_15",
+      "skill_17",
+      "skill_18",
+      "skill_19"
+    ]
+  },
+  {
     "_id": 7,
     "name": "QA Plataforma de Blog",
     "enabled": false,
@@ -1365,20 +1835,6 @@
     "platform": "Web",
     "access": {
       "links": ["#"]
-    }
-  },
-  {
-    "_id": 9,
-    "name": "QA API do Clima",
-    "enabled": false,
-    "description": "API de previsão do tempo com endpoints de consulta por cidade, coordenadas e histórico meteorológico",
-    "longDescription": "API REST que fornece dados meteorológicos incluindo previsão atual, próximos 7 dias, histórico e alertas climáticos. Suporta consultas por nome da cidade, código postal, coordenadas geográficas e IDs de localização. Ideal para praticar testes de API com dados externos, validação de respostas complexas, cache e rate limiting ☀️🌧️",
-    "imageUrl": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
-    "type": "Projeto de API",
-    "level": "Intermediário",
-    "platform": "API",
-    "access": {
-      "links": ["#", "#"]
     }
   },
   {
