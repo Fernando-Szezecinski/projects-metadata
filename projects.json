@@ -1810,18 +1810,421 @@
     ]
   },
   {
-    "_id": 7,
+    "_id": 5,
     "name": "QA Plataforma de Blog",
-    "enabled": false,
-    "description": "Plataforma de blog com posts, comentários e sistema de busca para testes manuais de conteúdo e interação",
-    "longDescription": "Sistema de blog completo onde usuários podem criar posts, adicionar comentários, curtir publicações, buscar por tags e categorias. Inclui editor de texto rico, upload de imagens e perfil de autor. Ideal para testar fluxos de criação de conteúdo, validação de formulários, interações sociais e funcionalidades de busca 📰💬",
+    "enabled": true,
+    "description": "Plataforma de blog com posts, comentários, tags e busca avançada para testes manuais de conteúdo e interação",
+    "longDescription": "Sistema de blog completo onde usuários podem criar posts com categorias e tags, adicionar comentários, curtir publicações, e buscar conteúdo através de filtros combinados. 📰💬",
     "imageUrl": "https://images.pexels.com/photos/34600/pexels-photo.jpg",
-    "type": "Projeto UI Manual",
+    "type": "Projeto de Automação Funcional UI",
     "level": "Intermediário",
     "platform": "Web",
     "access": {
-      "links": ["#"]
-    }
+      "links": ["https://qa-blog-nine.vercel.app/#/"],
+      "user": "-",
+      "pass": "-"
+    },
+    "requirements": [
+      "1. O sistema deve permitir criar um novo post informando título, conteúdo, autor, categoria e tags.",
+      "2. Todos os campos do formulário de criação de post são obrigatórios.",
+      "3. As tags devem ser separadas por vírgula e espaços em branco devem ser removidos automaticamente.",
+      "4. O sistema deve gerar automaticamente um ID único e timestamp para cada post criado.",
+      "5. O sistema deve exibir uma mensagem de erro quando campos obrigatórios não forem preenchidos.",
+      "6. Após criar um post com sucesso, o usuário deve ser redirecionado para a página inicial.",
+      "7. O sistema deve exibir uma lista de todos os posts na página inicial com título, autor, categoria, tags e número de likes.",
+      "8. O usuário pode buscar posts por palavras-chave no título ou conteúdo.",
+      "9. O usuário pode filtrar posts por categoria específica.",
+      "10. O usuário pode filtrar posts por tag específica.",
+      "11. Os filtros de busca, categoria e tag devem funcionar de forma combinada.",
+      "12. O sistema deve exibir um botão para limpar todos os filtros ativos.",
+      "13. O usuário pode clicar em um post da lista para visualizar seus detalhes completos.",
+      "14. A página de detalhes deve exibir título, autor, data de publicação, categoria, tags, conteúdo completo, número de likes e comentários.",
+      "15. O usuário pode curtir um post clicando no ícone de coração, incrementando o contador de likes.",
+      "16. O sistema deve permitir adicionar comentários a um post informando nome do autor e conteúdo do comentário.",
+      "17. Os campos de autor e conteúdo do comentário são obrigatórios.",
+      "18. O sistema deve gerar automaticamente um ID único e timestamp para cada comentário criado.",
+      "19. Comentários devem ser exibidos em ordem cronológica (mais antigos primeiro).",
+      "20. O sistema deve exibir mensagem indicando quando um post não possui comentários.",
+      "21. O sistema deve exibir a quantidade total de comentários em cada post.",
+      "22. Ao clicar em uma tag na lista de posts, o sistema deve filtrar apenas posts com aquela tag.",
+      "23. O sistema deve exibir todas as tags disponíveis no filtro de busca.",
+      "24. O sistema deve exibir todas as categorias disponíveis no filtro de busca."
+    ],
+    "scenarios": [
+      {
+        "id": 1,
+        "title": "Criar Post com Todos os Campos Válidos",
+        "requirements": [1, 2, 4, 6],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao preencher todos os campos obrigatórios (título, conteúdo, autor, categoria, tags) e submeter o formulário, o post é criado com sucesso, recebe ID e timestamp, e o usuário é redirecionado para a home",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 2,
+        "title": "Criar Post Sem Preencher Campos Obrigatórios",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao tentar submeter o formulário sem preencher todos os campos obrigatórios, o sistema exibe mensagem de erro e impede a criação",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
+      },
+      {
+        "id": 3,
+        "title": "Validar Processamento de Tags Separadas por Vírgula",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao inserir tags separadas por vírgula com espaços extras (ex: 'tag1 , tag2 , tag3'), o sistema remove espaços em branco e processa corretamente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 4,
+        "title": "Criar Post Sem Preencher Título",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede criação de post quando o campo título está vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 5,
+        "title": "Criar Post Sem Preencher Conteúdo",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede criação de post quando o campo conteúdo está vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 6,
+        "title": "Criar Post Sem Preencher Autor",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede criação de post quando o campo autor está vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 7,
+        "title": "Criar Post Sem Preencher Categoria",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede criação de post quando o campo categoria está vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 8,
+        "title": "Criar Post Sem Preencher Tags",
+        "requirements": [2, 5],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede criação de post quando o campo tags está vazio",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 9,
+        "title": "Visualizar Lista de Posts na Home",
+        "requirements": [7],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que a página inicial exibe uma lista de todos os posts com título, autor, categoria, tags e número de likes",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 10,
+        "title": "Buscar Posts por Palavra-Chave no Título",
+        "requirements": [8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao digitar uma palavra-chave no campo de busca, o sistema filtra e exibe apenas posts que contém a palavra no título",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 11,
+        "title": "Buscar Posts por Palavra-Chave no Conteúdo",
+        "requirements": [8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao digitar uma palavra-chave no campo de busca, o sistema filtra e exibe posts que contém a palavra no conteúdo",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 12,
+        "title": "Buscar Posts Sem Resultados",
+        "requirements": [8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que ao buscar por palavra-chave inexistente, o sistema exibe mensagem indicando nenhum resultado encontrado",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_15", "skill_16"]
+      },
+      {
+        "id": 13,
+        "title": "Filtrar Posts por Categoria Específica",
+        "requirements": [9, 24],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao selecionar uma categoria no filtro, o sistema exibe apenas posts daquela categoria",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 14,
+        "title": "Filtrar Posts por Tag Específica",
+        "requirements": [10, 23],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao selecionar uma tag no filtro, o sistema exibe apenas posts que contém aquela tag",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 15,
+        "title": "Filtros Combinados: Busca + Categoria",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Combinação",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao aplicar busca por texto e filtro de categoria simultaneamente, o sistema retorna apenas posts que atendem ambos os critérios",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 16,
+        "title": "Filtros Combinados: Busca + Tag",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Combinação",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao aplicar busca por texto e filtro de tag simultaneamente, o sistema retorna apenas posts que atendem ambos os critérios",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 17,
+        "title": "Filtros Combinados: Categoria + Tag",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Combinação",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao aplicar filtros de categoria e tag simultaneamente, o sistema retorna apenas posts que atendem ambos os critérios",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 18,
+        "title": "Filtros Combinados: Busca + Categoria + Tag",
+        "requirements": [11],
+        "type": "Funcional",
+        "technique": "Combinação",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao aplicar todos os filtros simultaneamente (busca, categoria e tag), o sistema retorna apenas posts que atendem todos os critérios",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 19,
+        "title": "Limpar Todos os Filtros",
+        "requirements": [12],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar no botão de limpar filtros, todos os filtros ativos são removidos e a lista completa de posts é exibida",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 20,
+        "title": "Navegar para Detalhes do Post",
+        "requirements": [13, 14],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar em um post da lista, o sistema navega para a página de detalhes exibindo todas as informações completas do post",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 21,
+        "title": "Curtir um Post",
+        "requirements": [15],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar no ícone de coração em um post, o contador de likes é incrementado em 1",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 22,
+        "title": "Curtir Post Múltiplas Vezes",
+        "requirements": [15],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Verificar o comportamento ao curtir um post múltiplas vezes (verificar se incrementa sempre ou se tem limite)",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 23,
+        "title": "Adicionar Comentário com Todos os Campos",
+        "requirements": [16, 17, 18],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao preencher autor e conteúdo do comentário e submeter, o comentário é adicionado ao post com ID e timestamp gerados automaticamente",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_13", "skill_16"]
+      },
+      {
+        "id": 24,
+        "title": "Adicionar Comentário Sem Autor",
+        "requirements": [17],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede adicionar comentário quando o campo autor está vazio",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
+      },
+      {
+        "id": 25,
+        "title": "Adicionar Comentário Sem Conteúdo",
+        "requirements": [17],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Cenário Negativo",
+        "description": "Verificar que o sistema impede adicionar comentário quando o campo conteúdo está vazio",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_15", "skill_16"]
+      },
+      {
+        "id": 26,
+        "title": "Verificar Ordem Cronológica dos Comentários",
+        "requirements": [19],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que comentários são exibidos em ordem cronológica (mais antigos primeiro)",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 27,
+        "title": "Exibir Mensagem de Post Sem Comentários",
+        "requirements": [20],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que quando um post não possui comentários, o sistema exibe mensagem apropriada",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 28,
+        "title": "Contador de Comentários",
+        "requirements": [21],
+        "type": "Funcional",
+        "technique": "Valor Limite",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o sistema exibe corretamente a quantidade total de comentários em cada post",
+        "skillsAwarded": ["skill_1", "skill_11", "skill_13", "skill_16"]
+      },
+      {
+        "id": 29,
+        "title": "Filtrar Posts ao Clicar em Tag do Card",
+        "requirements": [22],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que ao clicar em uma tag exibida no card de um post, o sistema filtra e exibe apenas posts com aquela tag",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 30,
+        "title": "Validar Todas as Tags Disponíveis no Filtro",
+        "requirements": [23],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o filtro de tags exibe todas as tags únicas presentes nos posts cadastrados",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 31,
+        "title": "Validar Todas as Categorias Disponíveis no Filtro",
+        "requirements": [24],
+        "type": "Funcional",
+        "technique": "Caixa-Preta",
+        "approach": "Baseado em Requisitos",
+        "description": "Verificar que o filtro de categorias exibe todas as categorias únicas presentes nos posts cadastrados",
+        "skillsAwarded": ["skill_1", "skill_7", "skill_13", "skill_16"]
+      },
+      {
+        "id": 32,
+        "title": "Fluxo Completo: Criar Post e Adicionar Comentário",
+        "requirements": [1, 2, 6, 13, 16, 17],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Baseado em Requisitos",
+        "description": "Testar o fluxo completo de criar um novo post, visualizar seus detalhes e adicionar um comentário",
+        "skillsAwarded": ["skill_1", "skill_5", "skill_16"]
+      },
+      {
+        "id": 33,
+        "title": "Título com Caracteres Especiais",
+        "requirements": [1],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar o comportamento do sistema ao criar post com título contendo caracteres especiais (@, #, $, emojis, etc)",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 34,
+        "title": "Conteúdo com Formatação HTML",
+        "requirements": [1],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar o comportamento ao inserir tags HTML no conteúdo do post (verificar sanitização)",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 35,
+        "title": "Tags com Caracteres Especiais",
+        "requirements": [3],
+        "type": "Funcional",
+        "technique": "Error Guessing",
+        "approach": "Exploratório",
+        "description": "Explorar comportamento ao inserir tags com caracteres especiais ou símbolos inválidos",
+        "skillsAwarded": ["skill_1", "skill_12", "skill_14", "skill_9", "skill_16"]
+      },
+      {
+        "id": 36,
+        "title": "Busca Case-Insensitive",
+        "requirements": [8],
+        "type": "Funcional",
+        "technique": "Partição de Equivalência",
+        "approach": "Exploratório",
+        "description": "Verificar se a busca funciona independente de maiúsculas/minúsculas",
+        "skillsAwarded": ["skill_1", "skill_10", "skill_14", "skill_16"]
+      }
+    ],
+    "skillsAwarded": [
+      "skill_1",
+      "skill_5",
+      "skill_7",
+      "skill_9",
+      "skill_10",
+      "skill_11",
+      "skill_12",
+      "skill_13",
+      "skill_14",
+      "skill_15",
+      "skill_16"
+    ]
   },
   {
     "_id": 8,
